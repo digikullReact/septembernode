@@ -18,7 +18,12 @@ fs.writeFile("./todo.txt","88888888",(err,data)=>{
 */
 
 // if we want to keep the old contents of our file as well then we have to use appnedFile
-
+/*
 fs.appendFile("./todo.txt","I will be appended \n",(err,data)=>{
+    console.log(err);
+})
+*/
+
+fs.unlink("./todo.txt",(err,result)=>{
     console.log(err);
 })
