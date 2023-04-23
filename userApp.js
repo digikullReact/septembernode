@@ -1,4 +1,6 @@
 const readline = require('readline');  // readline module 
+var clc = require("cli-color");
+
 
 const { stdin: input, stdout: output } = require('process'); //process module
 
@@ -56,7 +58,7 @@ function UserInput(rl,operation){
 
 function UserAdd(){
    
-    rl.question("Enter the operation you want to perform [1 - add]  [2 - subtract] [3 - multiplication] [4 - division]  \n",(operation)=>{  // \n -->is a new line character
+    rl.question(clc.blue("Enter the operation you want to perform [1 - add]  [2 - subtract] [3 - multiplication] [4 - division]  \n"),(operation)=>{  // \n -->is a new line character
     
         UserInput(rl,Number(operation));
        /*
@@ -101,6 +103,14 @@ function UserAdd(){
 
 
 UserAdd();
+
+
+// you have to build a coffee shop cli app
+// you have to present the user with the coffee and the price 
+// then take the user input for the coffee 
+// then just show coffee is preparing 
+// then after that print your coffee is ready and yoou have to pay this much amount
+
 
 
 
