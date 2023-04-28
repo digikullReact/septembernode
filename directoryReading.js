@@ -7,8 +7,10 @@ const path=require("path");
 
 const RootPath="./sampledir"
 
-fs.readdir("./sampledir").then(data=>{
-    console.log(data);
+const FileNames=[];
+
+fs.readdir(RootPath).then(data=>{
+    console.log(data);  // Returns an array --->
 
 // iterate over the array
    for(let i=0;i<data.length;i++){
@@ -17,6 +19,7 @@ fs.readdir("./sampledir").then(data=>{
 
 
     // We have to extract the exact path of the file  from name --->
+    
     let newPath=path.join(RootPath,data[i])
     if(fsSync.lstatSync(newPath).isDirectory() ){
 
@@ -24,6 +27,9 @@ fs.readdir("./sampledir").then(data=>{
 
       //  fs.readdir() // again 
 
+    }else{  // this is the base condition --->
+
+        FileNames.push(newPath);
     }
 
    console.log()
