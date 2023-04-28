@@ -8,6 +8,14 @@ fs.readFile("./data.txt",'utf-8',function(err,result){
 
 })
 
+
+fs.readFile("./data.json",'utf-8',function(err,result){
+    console.log(err);
+    console.log(result);
+
+})
+
+
 // Write to file 
 
 /*
@@ -27,3 +35,5 @@ fs.appendFile("./todo.txt","I will be appended \n",(err,data)=>{
 fs.unlink("./todo.txt",(err,result)=>{
     console.log(err);
 })
+
+// your task is to write the application that takes user input and write it to the file --
