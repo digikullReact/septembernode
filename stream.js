@@ -1,18 +1,27 @@
 const fs=require("fs");
 
+const stream=require("stream");
 
+//stream.Transform.
 
 
 // Read stream -->
 
-const readstream=fs.createReadStream("./largedata.txt");
+const readstream=fs.createReadStream("./generatedt.json");
+
+readstream.on("data",(data)=>{
+    console.log(data.toString());
+
+    // Can you transform this data --->
+})
+
 
 // Write stream
 
 
-const writeStream=fs.createWriteStream("./dataTransfer.txt")
+//const writeStream=fs.createWriteStream("./dataTransfer.txt")
 
-readstream.pipe(writeStream);
+//readstream.pipe(writeStream);
 
 // duplex stream
 
@@ -26,4 +35,6 @@ fs.readFile("./largedata.txt","utf-8").then(data=>{
     console.log(err);
 })
 */
+
+// so read the file take the name out of the data and write the data in another file
 
