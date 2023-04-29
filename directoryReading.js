@@ -1,6 +1,7 @@
 const fs=require("fs/promises");
 const fsSync=require("fs");
 const path=require("path");
+
 //console.log(fsSync.lstatSync("./sampledir").isDirectory() )
 
 // path.join() --->it joins two file path as per the operating system
