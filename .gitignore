@@ -1,3 +1,5 @@
 /node_modules
 ./node_modules
 /node_modules
+/videostream/node_modules
+/expresstream/node_modules
