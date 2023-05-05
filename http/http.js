@@ -42,6 +42,8 @@ const requestHandler = (request, response) => {
       // ----->
       let requestdata = [];
 
+      // only applicable when your request body has data 
+
       request.on("data", (chunk) => {
         requestdata.push(chunk);
         // console.log("Request with data Came----")
