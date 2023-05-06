@@ -5,7 +5,7 @@ const cors=require("cors");
 const { v4: uuidv4 } = require('uuid');
 
 const port = 8080
-const data=[
+let  data=[
     {
       "_id": "64565a823b88d8eed2378b97",
       "age": 68,
@@ -78,6 +78,35 @@ app.post("/person",(req,res)=>{
         message:"success"
     })
 })
+
+app.put("/person",(req,res)=>{
+  
+    //  console.log(req.body);
+      const requestBody=req.body;
+
+      const filetered=data.filter(ele=>ele._id!=requestBody._id)
+      filetered.push(requestBody)
+      data=filetered
+      res.json({
+          message:"success"
+      })
+  })
+
+  app.delete("/person",(req,res)=>{
+  
+    //  console.log(req.body);
+      const requestBody=req.body;
+    //  console.log(requestBody)
+
+      const filetered=data.filter(ele=>ele._id!=requestBody._id)
+ 
+      data=filetered
+      res.json({
+          message:"success"
+      })
+  })
+
+
 
 
 
