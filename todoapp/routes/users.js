@@ -77,11 +77,12 @@ router.get('/', function(req, res, next) {
 
 router.get('/list', function(req, res, next) {
  
-  res.render("users",{data:data});
+  console.log("jjj")
+  res.render("user",{data:data});
 });
 
 
-router.get('/profile', function(req, res, next) {
+router.get('/profile/:id', function(req, res, next) {
  
   res.render("userprofile")
 });
