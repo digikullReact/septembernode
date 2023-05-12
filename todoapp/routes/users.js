@@ -77,7 +77,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/list', function(req, res, next) {
  
-  console.log("jjj")
   res.render("user",{data:data});
 });
 
