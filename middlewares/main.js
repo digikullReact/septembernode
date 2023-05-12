@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 const {first,second}=require("./middleware");
-const {appLevel,appLevel2}=require("./applevelmiddleware");
-app.use(express.json(),appLevel,appLevel2);
+const {appLevel,appLevel2,sanitizeUpperCase}=require("./applevelmiddleware");
+app.use(express.json(),sanitizeUpperCase,appLevel,appLevel2);
 
 //app.use(appLevel,appLevel2)
 //app.use(appLevel2)
@@ -14,7 +14,7 @@ const server = () => {
     })
 
     app.post("/data", function (req, res) {
-        res.send("Data Api ")
+        res.send("Data Api",req.body);
 
     })
 
@@ -30,3 +30,7 @@ const server = () => {
 
 
 server();
+
+// you have to create a  middleware ,that checks for text and if if finds any text that contains
+// all capital letters --->it converts it into small case
+// req.body 
