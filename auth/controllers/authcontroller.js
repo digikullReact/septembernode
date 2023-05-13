@@ -1,4 +1,6 @@
 const {createUser}=require("../db/db");
+const  jwt = require('jsonwebtoken');
+
 
 const signup=(req,res,next)=>{
 
@@ -27,9 +29,14 @@ const signup=(req,res,next)=>{
 
 const login=(req,res)=>{
 
+    // issuing the jwt 
+   const  token = jwt.sign({username:req.body.username}, process.env.JWTKEY);
+ 
+
 res.json({
         status:"Success",
-        messag:"User Logged In"
+        token:token,
+        message:"User Logged In"
 
     })
 

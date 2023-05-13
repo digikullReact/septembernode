@@ -26,14 +26,20 @@ const encryptPassword=(req,res,next)=>{
 
 const checkPassword=(req,res,next)=>{
     const user=getUserByUsername(req.body.username);
-    bcrypt.compare(req.body.password, user.password, function(err, result) {
-        if(!result){
-            next(new Error("Please enter correct username or password"))
-        }else{
-            next();
-        }
-    
-    });
+    if(user){
+        bcrypt.compare(req.body.password, user.password, function(err, result) {
+            if(!result){
+                next(new Error("Please enter correct username or password"))
+            }else{
+                next();
+            }
+        
+        });
+
+    }else{
+        next(new Error("User Not found"))
+    }
+  
 
 
 }
