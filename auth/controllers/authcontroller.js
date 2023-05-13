@@ -1,28 +1,35 @@
 const {createUser}=require("../db/db");
 
-const signup=(req,res)=>{
+const signup=(req,res,next)=>{
 
     const user=req.body;
 
-    createUser(user)
-
+   let result= createUser(user)
+   if(result){
     res.json({
         status:"Success",
         messag:"User Created"
 
     })
+
+   }else{
+    // if you invoke next like this anywhere in your code 
+    // it will just hit the error middlewar
+   // throw new Error("Errorororo")
+   next(new Error("User Already Exists"))
+
+   }
+
+   
 }
+
 
 
 const login=(req,res)=>{
 
-    const user=req.body;
-
-    createUser(user)
-
-    res.json({
+res.json({
         status:"Success",
-        messag:"User Created"
+        messag:"User Logged In"
 
     })
 
@@ -31,5 +38,6 @@ const login=(req,res)=>{
 }
 
 module.exports={
-    signup
+    signup,
+    login
 }

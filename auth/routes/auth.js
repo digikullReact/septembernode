@@ -1,8 +1,11 @@
 const express=require("express");
 const router=express.Router();
-const {signup}=require("../controllers/authcontroller");
+const {signup,login}=require("../controllers/authcontroller");
+const {encryptPassword,checkPassword}=require("../middlewares/middleware");
 
-router.post("/signup",signup)
+router.post("/signup",encryptPassword,signup)
+router.post("/signin",checkPassword,login)
+
 
 
 module.exports=router
