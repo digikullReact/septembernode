@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use("/api",personRouter)
 
-app.get("/person",(req,res)=>{
+app.get("/data/person",(req,res)=>{
 
     // sending response
    // res.send()// send text data
@@ -38,7 +38,7 @@ app.post("/person",(req,res)=>{
     })
 })
 
-app.put("/person",(req,res)=>{
+app.put("/data/person",(req,res)=>{
   
     //  console.log(req.body);
       const requestBody=req.body;
@@ -71,16 +71,18 @@ app.put("/person",(req,res)=>{
 
 
 // creating routes here
-/*
+
 app.use(express.static("client/build"))
 
 app.get("*",(req,res)=>{
 
     res.sendFile(`${path.join(__dirname,"client/build")}/index.html`)
 })
-*/
+
 
 // routes for person domain
+// api routes --> /api 
+
 
 
 

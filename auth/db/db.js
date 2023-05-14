@@ -1,5 +1,7 @@
 // Store all the users in it ----->
 // DAO (Data access object layer --->which interacts with the database)
+const { v4: uuidv4 } = require('uuid');
+
 const USERS=[]
 
 const createUser=(userData)=>{
@@ -7,6 +9,9 @@ const createUser=(userData)=>{
    if(existing){
     return false;
    }
+
+   // Generate a Id for the user 
+   userData.id=uuidv4();
    USERS.push(userData)
 
   return  true
